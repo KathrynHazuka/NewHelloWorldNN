@@ -12,6 +12,7 @@ namespace NewHelloWorldNN
         /// Array of all layer sizes for this Neural Network
         /// </summary>
         int[] layerSizes;
+
         /// <summary>
         /// Array of all layers (excluding the input layer) for this Neural Network
         /// </summary>
@@ -21,7 +22,7 @@ namespace NewHelloWorldNN
         /// Learning rate of all nn instances
         /// </summary>
         public static double LearningRate = .0020;
-
+        
         /// <summary>
         /// Initialization method for the Neural Network
         /// </summary>
@@ -66,26 +67,38 @@ namespace NewHelloWorldNN
             return layers[layers.Length - 1].outputs;
         }
 
+        /// <summary>
+        /// Adjust weights and biases based on target input
+        /// </summary>
+        /// <param name="target"></param>
         public void Learn(double[] target)
         {
+            // compute back propagation on all layers
             for (int i = layers.Length - 1; i >= 0; i--) 
             {
                 if (i == layers.Length - 1) 
                 {
+                    // compute back propagation of output layer
                     layers[i].BackPropOutput(target);
                 }
                 else
                 {
-                    layers[i].BackPropHidden(layers[i + 1].gamma, layers[i + 1].weights);
+                    // compute back propagation of hidfden layer
+                    layers[i].BackPropHidden(layers[i + 1].error, layers[i + 1].weights);
                 }
             }
 
+            // update weights of all layers
             for (int i = 0; i < layers.Length; i++)
             {
                 layers[i].UpdateWeights();
             }
         }
 
+        /// <summary>
+        /// Gets the combined error (loss) of the output layer
+        /// </summary>
+        /// <returns></returns>
         public double GetLoss()
         {
             return layers[layers.Length - 1].error.Sum();

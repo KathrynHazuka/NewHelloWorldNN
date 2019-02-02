@@ -8,9 +8,15 @@ namespace NewHelloWorldNN
 {
     public class Utility
     {
+        /// <summary>
+        /// Formats an array of doubles into a string after rounding to specified format
+        /// </summary>
+        /// <param name="array">Array to format</param>
+        /// <param name="format">format used when evaluating String.Format(string, format)</param>
+        /// <returns></returns>
         public static string ArrayToString(double[] array, string format)
         {
-            string s = "( ";
+            string s = "(";
             for (int i = 0; i < array.Length; i++)
             {
                 s += array[i].ToString(format);
@@ -20,15 +26,20 @@ namespace NewHelloWorldNN
                 }
                 else
                 {
-                    s += " )";
+                    s += ")";
                 }
             }
             return s;
         }
 
+        /// <summary>
+        /// Formats an array of doubles into a string
+        /// </summary>
+        /// <param name="array">Array to format</param>
+        /// <returns></returns>
         public static string ArrayToString(double[] array)
         {
-            string s = "( ";
+            string s = "(";
             for (int i = 0; i < array.Length; i++)
             {
                 s += array[i].ToString();
@@ -38,7 +49,7 @@ namespace NewHelloWorldNN
                 }
                 else
                 {
-                    s += " )";
+                    s += ")";
                 }
             }
             return s;
