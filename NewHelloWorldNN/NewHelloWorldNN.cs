@@ -32,7 +32,7 @@ namespace NewHelloWorldNN
             Console.Write("---------------------------------------------------------------------\n");
 
             // teach network based on random XOR operations
-            for (int i = 0; i < 5000; i++)
+            for (int i = 0; i < 5001; i++)
             {
                 for (int j = 0; j < 20; j++)
                 {
@@ -48,6 +48,7 @@ namespace NewHelloWorldNN
                     Console.Write("Loss after " + (i * 20) + " samples " + loss.ToString("F8") + "\n");
                 }
             }
+
             Console.Write("\n");
             Console.Write("--------------------------\n");
             Console.Write("Outputs using Testing Set:\n");
