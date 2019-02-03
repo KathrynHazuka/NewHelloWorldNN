@@ -22,7 +22,7 @@ namespace NewHelloWorldNN
             xor[4] = new XOR(new double[] { 1, 1, 0 }, new double[] { 0 });
             xor[5] = new XOR(new double[] { 1, 0, 1 }, new double[] { 0 });
             xor[6] = new XOR(new double[] { 0, 1, 1 }, new double[] { 0 });
-            xor[7] = new XOR(new double[] { 1, 1, 1 }, new double[] { 0 });
+            xor[7] = new XOR(new double[] { 1, 1, 1 }, new double[] { 1 });
 
             // create neural network based on layer sizes
             NeuralNetwork nn = new NeuralNetwork(new int[] { 3, 25, 25, 1 });
@@ -36,7 +36,7 @@ namespace NewHelloWorldNN
             {
                 for (int j = 0; j < 20; j++)
                 {
-                    int r = random.Next(0, 7);
+                    int r = random.Next(0, 8);
                     nn.ComputeNN(xor[r].input);
                     nn.Learn(xor[r].target);
                 }
@@ -57,7 +57,7 @@ namespace NewHelloWorldNN
             // test network using random XOR inputs
             for (int i = 0; i < 20; i++)
             {
-                int r = random.Next(0, 7);
+                int r = random.Next(0, 8);
                 Console.Write(String.Format("Input {0} | Output {1} {2} Expected \n", 
                     Utility.ArrayToString(xor[r].input), 
                     Utility.ArrayToString(nn.ComputeNN(xor[r].input), "F0"), 
