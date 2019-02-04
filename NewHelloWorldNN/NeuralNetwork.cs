@@ -21,7 +21,7 @@ namespace NewHelloWorldNN
         /// <summary>
         /// Learning rate of all nn instances
         /// </summary>
-        public static double LearningRate = .0020;
+        public static double LearningRate = .0026;
         
         /// <summary>
         /// Initialization method for the Neural Network

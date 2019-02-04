@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static NewHelloWorldNN.Utility;
 
 namespace NewHelloWorldNN
 {
@@ -59,9 +60,9 @@ namespace NewHelloWorldNN
             {
                 int r = random.Next(0, 8);
                 Console.Write(String.Format("Input {0} | Output {1} {2} Expected \n", 
-                    Utility.ArrayToString(xor[r].input), 
-                    Utility.ArrayToString(nn.ComputeNN(xor[r].input), "F0"), 
-                    Utility.ArrayToString(xor[r].target)));
+                    ArrayToString(xor[r].input), 
+                    ArrayToString(nn.ComputeNN(xor[r].input), "F0"), 
+                    ArrayToString(xor[r].target)));
             }
 
             // hold program to 
